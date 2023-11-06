@@ -4,10 +4,11 @@
   "description": "TransferMole payment widget for seamless integration",
   "main": "./lib/index.js",
   "files": [
-    "lib/**/*"
+    "lib/**/*",
+    "src/public/transfermole-widget.css"
   ],
   "scripts": {
-    "build": "tsc --project tsconfig.build.json",
+    "build": "tsc --project tsconfig.build.json & npm run copy-files",
     "clean": "rm -rf ./lib/",
     "cm": "cz",
     "lint": "eslint ./src/ --fix",
@@ -15,7 +16,8 @@
     "semantic-release": "semantic-release",
     "test:watch": "jest --watch",
     "test": "jest --coverage",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "copy-files": "mkdir -p ./lib/public & cp src/public/* ./lib/public"
   },
   "repository": {
     "type": "git",
@@ -49,7 +51,7 @@
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@types/jest": "^27.5.2",
-    "@types/node": "^12.20.11",
+    "@types/node": "^16.18.39",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "conventional-changelog-conventionalcommits": "^5.0.0",
@@ -64,7 +66,15 @@
     "semantic-release": "^21.0.1",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
-    "typescript": "^4.2.4"
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.39",
+    "@types/react": "^18.2.18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.9.5"
   },
   "config": {
     "commitizen": {
